@@ -1,18 +1,17 @@
 # Libraries
 library(tidyverse)
-library(magick)
 
 # Data
 # mobile <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-11-10/mobile.csv')
 # write.csv(mobile, "mobile.csv")
 mobile <- read.csv("mobile.csv")
-mob_dat <- mobile %>% filter(entity == "Libya" | entity == "Kenya" | entity == "Seychelles" , !is.na(mobile_subs), year>= 1995) 
+mob_dat <- mobile %>% filter(entity == "Libya" | entity == "Kenya" | entity == "Seychelles" , !is.na(mobile_subs), year>= 1995) # Keep only the necessary country data withoust missing values
 
-cbp2 <- c("red", "green", "blue")
+cbp2 <- c("red", "green", "blue") # Colors to use for the line graphs
 
 p <-   ggplot(mob_dat, aes(x=year, y=mobile_subs, col = entity, group = entity)) +
   geom_line(aes(col=entity), size = .8) +
-  theme_minimal()+
+  theme_minimal() +
   theme(legend.title = element_blank(), legend.position = "none") +
   xlab("Year")+
   labs(title = "Mobile phone subscriptions in Libya, Seychelles and Kenya",
