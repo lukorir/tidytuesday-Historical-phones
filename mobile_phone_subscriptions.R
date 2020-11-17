@@ -2,7 +2,6 @@
 library(tidyverse)
 library(magick)
 
-setwd("G:/My Drive/MoreMilk/tidytuesday/Historical phones/tidytuesday-Historical-phones")
 # Data
 # mobile <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-11-10/mobile.csv')
 # write.csv(mobile, "mobile.csv")
